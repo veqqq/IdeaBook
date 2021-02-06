@@ -104,7 +104,37 @@
 <a name="download_a_url"></a>
 <h2>Download a URL</h2>
 <p>You may want to simply download the contents of a page and store it for offline review at a later date, or download a binary file after determining what URL contains the file you want. This example demonstrates how to make an HTTP request and stream the contents to a file. This only requires the standard library.</p>
-<code>// download_url.go<br />package main<br /><br />import (<br />&nbsp;&nbsp;&nbsp; &quot;io&quot;<br />&nbsp;&nbsp;&nbsp; &quot;log&quot;<br />&nbsp;&nbsp;&nbsp; &quot;net/http&quot;<br />&nbsp;&nbsp;&nbsp; &quot;os&quot;<br />)<br /><br />func main() {<br />&nbsp;&nbsp;&nbsp; // Make request<br />&nbsp;&nbsp;&nbsp; response, err := http.Get(&quot;https://www.devdungeon.com/archive&quot;)<br />&nbsp;&nbsp;&nbsp; if err != nil {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; log.Fatal(err)<br />&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; defer response.Body.Close()<br /><br />&nbsp;&nbsp;&nbsp; // Create output file<br />&nbsp;&nbsp;&nbsp; outFile, err := os.Create(&quot;output.html&quot;)<br />&nbsp;&nbsp;&nbsp; if err != nil {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; log.Fatal(err)<br />&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; defer outFile.Close()<br /><br />&nbsp;&nbsp;&nbsp; // Copy data from HTTP response to file<br />&nbsp;&nbsp;&nbsp; _, err = io.Copy(outFile, response.Body)<br />&nbsp;&nbsp;&nbsp; if err != nil {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; log.Fatal(err)<br />&nbsp;&nbsp;&nbsp; }<br />}</code>
+<code>// download_url.go
+package main
+
+import (
+    "io"
+    "log"
+    "net/http"
+    "os"
+)
+
+func main() {
+    // Make request
+    response, err := http.Get("https://www.devdungeon.com/archive")
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer response.Body.Close()
+
+    // Create output file
+    outFile, err := os.Create("output.html")
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer outFile.Close()
+
+    // Copy data from HTTP response to file
+    _, err = io.Copy(outFile, response.Body)
+    if err != nil {
+        log.Fatal(err)
+    }
+}</code>
 
 
 
