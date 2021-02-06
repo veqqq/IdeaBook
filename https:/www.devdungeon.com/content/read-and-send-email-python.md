@@ -21,7 +21,6 @@
 <li class="toc-node-level-1"><a href="/content/read-and-send-email-python#toc-6"><span class="toc-text">References</span></a></li>
 </ul></div><article id="node-391" class="node node-blog node-promoted clearfix" about="/content/read-and-send-email-python" typeof="sioc:Post sioct:BlogPost">
       
-      <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><!-- # Read and Send Email with Python -->
 
 <div class="toc-item-anchor"><a name="toc-1"></a></div><h2 class=" toc-headings">Introduction</h2>
 
