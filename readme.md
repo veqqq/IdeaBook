@@ -23,7 +23,7 @@
   - smmry.com - Maybe uses Stanford nlp module to process words, then tf-idf algo to find key phrases - term frequency - inverse document frequency analyzes word count, the more frequent the word, the more importanat (but normalize with the inverse you get from a body of documents, to control for conjunctions etc.) probably easy/fast to implement
 - automate commits and random activity here to inflate rankings - or would it be spam? probably no one cares either way
 
-- do markov chain links function similarly to neurons in neural nets? what kind of overly complex markov chains can be made? can they be applied to finance too, if x moves, y will too...
+- do markov chain links function similarly to neurons in neural nets? what kind of overly complex markov chains can be made? can they be applied to finance too, if x moves, y will too... "people should research outdated technology just to see what more can be done with it"
 
 #### what im doing
 - go
