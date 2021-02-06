@@ -1,10 +1,6 @@
 <!DOCTYPE html>
+<html>
 <head>
-
-# i took this from https://www.devdungeon.com/content/web-scraping-go
-
-</head>
-
 <ul>
     <li><a href="#intro">Introduction</a></li>
     <li><a href="#ethics_and_guidelines">Ethics and guidelines of scraping</a></li>
@@ -237,49 +233,6 @@ We can also leverage the <strong>goquery</strong> package to search for other el
 
 
 
-<a name="conclusion"></a>
-<h2>Conclusion</h2>
-<p>With this reference code, you should be able to perform basic web scraping tasks to suit your needs. There are also more features in the goquery library that I have not covered. Refer to the official repository at <a href="https://github.com/PuerkitoBio/goquery" target="_blank">https://github.com/PuerkitoBio/goquery</a> for the latest information.</p>
-
-</div></div></div><div id="disqus_thread"><noscript><p><a href="http://devdungeon.disqus.com/?url=https%3A%2F%2Fwww.devdungeon.com%2Fcontent%2Fweb-scraping-go">View the discussion thread.</a></p></noscript></div>    
-
-
-     <footer>
-     <div class="field field-name-field-tags field-type-taxonomy-term-reference field-label-above"><div class="field-label">Tags:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="/tags/go" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Go</a></div><div class="field-item odd"><a href="/tags/web-scraping" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Web Scraping</a></div><div class="field-item even"><a href="/tags/web-crawling" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Web Crawling</a></div><div class="field-item odd"><a href="/tags/http" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">HTTP</a></div></div></div>     <ul class="links list-inline"><li class="blog_usernames_blog first last"><a href="/blogs/nanodano" title="Read NanoDano&#039;s latest blog entries.">NanoDano&#039;s blog</a></li>
-</ul>  </footer>
-      </article>
-
-</section>
-<section id="block-block-15" class="block block-block clearfix">
-
-          <aside class="col-sm-3" role="complementary">
-          <div class="region region-sidebar-second">
-    <section id="block-search-form" class="block block-search clearfix">
-
-      
-  <form class="form-search content-search" action="/content/web-scraping-go" method="post" id="search-block-form" accept-charset="UTF-8"><div><div>
-      <h2 class="element-invisible">Search form</h2>
-    <div class="input-group"><input title="Enter the terms you wish to search for." placeholder="Search" class="form-control form-text" type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" /><span class="input-group-btn"><button type="submit" class="btn btn-primary"><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
-</button></span></div><div class="form-actions form-wrapper form-group" id="edit-actions"><button class="element-invisible btn btn-primary form-submit" type="submit" id="edit-submit" name="op" value="Search">Search</button>
-</div><input type="hidden" name="form_build_id" value="form-ZnW5VP-BcjZiAqRN8sDpelucLh_ELE-t4B-prQBt91A" />
-<input type="hidden" name="form_id" value="search_block_form" />
-</div>
-</div></form>
-</section>
-<section id="block-block-39" class="block block-block clearfix">
-
-      
-  </div>
-</div>
-
-  <footer class="footer container">
-      <div class="region region-footer">
-    <section id="block-block-6" class="block block-block clearfix">
-
-
-</section>
-  </div>
-  </footer>
 </body>
 </html>
 
