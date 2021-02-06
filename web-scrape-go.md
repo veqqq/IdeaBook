@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 ##### https://www.devdungeon.com/content/web-scraping-go
+
+-the code snipets are badly formatted and look ugly
+
 <html>
 <head>
 <ul>
