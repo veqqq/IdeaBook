@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+### https://www.devdungeon.com/content/python-read-and-send-email
+
 <html>
 <body>
 <head>
@@ -16,8 +19,8 @@
 <li class="toc-node-level-2"><a href="/content/read-and-send-email-python#toc-11"><span class="toc-text">Send a text message (SMS/MMS) via email</span></a></li>
 <li class="toc-node-level-1"><a href="/content/read-and-send-email-python#toc-5"><span class="toc-text">Conclusion</span></a></li>
 <li class="toc-node-level-1"><a href="/content/read-and-send-email-python#toc-6"><span class="toc-text">References</span></a></li>
-</ul></div><article id="node-391" class="node node-blog node-promoted clearfix" about="/content/read-and-send-email-python" typeof="sioc:Post sioct:BlogPost"><header><span property="dc:title" content="Read and Send Email with Python" class="rdf-meta element-hidden"></span>  </header><span class="submitted">
-        <span property="dc:date dc:created" content="2020-03-14T17:44:17-05:00" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <a href="/users/nanodano" title="View user profile." class="username" xml:lang="" about="/users/nanodano" typeof="sioc:UserAccount" property="foaf:name" datatype="">NanoDano</a> on Sat, 03/14/2020 - 17:44</span>    </span>
+</ul></div><article id="node-391" class="node node-blog node-promoted clearfix" about="/content/read-and-send-email-python" typeof="sioc:Post sioct:BlogPost">
+      
       <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><!-- # Read and Send Email with Python -->
 
 <div class="toc-item-anchor"><a name="toc-1"></a></div><h2 class=" toc-headings">Introduction</h2>
