@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <!-- this is my default html -->
 
-<html>
+<html lang="eng">
   <head>
    <link rel="stylesheet" href="index.css">   
    <meta charset="utf-8">
+       <meta name="author" content="">
+      <meta name="viewport" 
+content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <title>My test page</title>
   </head>
   <body>
@@ -13,5 +16,182 @@
 </html>
 
 
-<!--        -->
-<!--        -->
+<!-- html's modern concerns are creating custom interfaces which are semantic and 
+accessible, improving performance with attributes and tooling, organizing  
+code for reuse and maintainability
+
+html5 in 2008 provided new elements to maintain document semantics
+so you wouldn't need <div class="navbar"> but could use <nav role="navigation">
+and <section class="grid">, <article>, <footer>, <main>
+
+WAI-ARIA, which stands for “Web Accessibility Initiative — Accessible Rich Internet Applications”
+aria-label="search"> <- you would put this in e.g. as placeholder is only human readable
+      <form>
+        <input type="text" placeholder="Search" aria-label="Search">
+        <button type="submit">Search</button>
+      </form>
+It isn't essential, it's just a semantic tag.
+
+Using css frameworks requires the user to download the whole framework... 
+That can be very big with all the js.
+So people often optimize it by putting all js <script> tags out of the <head>
+and at the end of the <body> (as in bootstraps' starter template)
+  - but you can instead use the -defer- attribute to a <script> letting the browser
+render the DOM from the html _while downloading the js! ( <script defer src= ... </script>
+  - async and rel="preload" for <link> also let you govern the order things come out in
+  - linking images locally instead of from another site optimize performance
+you can also resize them to lower resolutions:
+<img class="img-fluid" src="microsoft-logo-small.png" srcset="microsoft-logo-medium.png 
+1000w, microsoft-logo-large.png 2000w" alt="microsoft logo">
+the -srcset- attribute tells the browser to load the right one based on browser
+width. 
+-importance
+-lazyload
+
+#minification of JS and CSS - a program analyzes and removes unnecesary data
+from code (parts of frameworks not used, extra spaces, making variables single
+characters...)
+  - it is what makes super ugly unreadable solidblocks of JS.
+  - often cuts 70% of file size!
+
+# critical css - a tool identifies the most important elements of a page
+and shrinks them together: https://github.com/addyosmani/critical or
+https://jonassebastianohlsson.com/criticalpathcssgenerator/
+  you can e.g. have a 12kb file with all necesary JS and CSS
+  - it lets you use rel="preload" to load things asynchronously! thus faster
+
+# all of these things are done in a build step
+- minify html css js
+- concatenate js and css
+- inline critical css
+- optimize images (resize, remove metadata)
+webpack is one tool for this
+
+##### server templates
+head.php contains the <head> element, header.php has the navbar, footer.php...
+are combined with index.php
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <?php include("head.php");?>
+  </head>
+  <body>
+    <?php include("header.php");?>
+    <main role="main">
+      <section class="jumbotron">
+        ...
+      </section>
+      <section class="container">
+        ...
+      </section>
+    </main>
+    <?php include("footer.php");?>
+  </body>
+</html>
+
+letting you have barebones html templates and not need to repeat yourself
+  - you can change the header just by changing the header.php file!
+  (there is a build step which turns include() into html from those files...)
+  they can be built during the build step, or they can be rendered by the server
+and then sent to the client! This makes dynamic html.
+      (if you google "bannanas" google wont send you a unique html already saved,
+but will render a new one)
+
+Template rendered by the server is done with
+- php
+- erb
+- ruby on rails
+- django (has a django template languages)
+- ejs - node's express framework
+
+static generators which wont render (i.e. you dont need a database)
+- jekyll
+- hugo
+- gatsby
+
+------
+
+# web components
+- built on the client, not the server
+- create reusable widgets (navbar component, header component...) combine with:
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    ...
+  </head>
+  <body>
+    <navbar-component></navbar-component>
+    <main role="main">
+      <jumbotron-component></jumbotron-component>
+      <section class="container">
+        <articles-component></articles-component>
+      </section>
+    </main>
+    <footer-component></footer-component>
+  </body>
+</html>
+
+# # # # ## these custom elements are defined with JS: # # # # # ##
+
+window.customElements.define(
+  "navbar-component",
+  class extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Info</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </nav>
+       `;
+    }
+  }
+);
+
+Components are cool because  you can make something like:
+<video width="320" height="240" controls loop muted>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  <p>Your browser doesn't support HTML5 video. Here is
+     a <a href="movie.mp4">link to the video</a> instead.</p>
+</video>
+    which won't affect styles or functionality of the site
+so you can copy paste anywhere without issue
+
+  - you can use the shadow DOM to style the custom element with css
+which only affects it
+  - html templates - write component jtml in a <template> tag
+which wont get rendered until JS calls it: 
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
+  - html imports - have navbar-component.html with html, css, js
+which is called into the main html file like css:
+<link rel="import" href="navbar-component.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
+
