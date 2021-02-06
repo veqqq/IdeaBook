@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
 
-# i took this from code dungeon
+# i took this from https://www.devdungeon.com/content/web-scraping-go
 
 <!-- popdown menu -->
 <style>
