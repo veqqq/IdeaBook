@@ -3,6 +3,15 @@
 
 #### projects in the back of my mind
 
+- broken translation game
+  - like telephone, but users translate a text into the next language really muddling it up
+  - user profiles, points for translation quality/how much they've done (ranking?) pms etc. hypothetically, but why bloat...
+  - cool sorting algo, en->sp->en banned, but en->sp->chinese->sp(->en or vice versa) could be ok, as long as broken up
+  - how to get enough users?
+  - something for people to correct others' translations, maybe? (after its done people can go from the original to each target lang?)
+  - use it to crowd source translations of other things?
+  - esperanto community could be a good start and https://forum.language-learners.org and reddit subs
+
 - web scrapping
   - reddit bots analyzing stocks, analyzing news articles (especially arctic and central asia) by author, comment quality/size, etc. to get a statistical image of the field
   - colly lib - go
