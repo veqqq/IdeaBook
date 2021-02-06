@@ -20,8 +20,7 @@
   - rod lib - go
   - scrapy - py (makes crawlers/spiders) - beautifulsoup is basically just a parser
 - nat lang processing - to write and interpret comments and articles
-  - smmry.com - Maybe uses Stanford nlp module to process words, then tf-idf algo to find key phrases
-     - term frequency - inverse document frequency analyzes word count, the more frequent the word, the more importanat (but normalize with the inverse you get from a body of documents, to control for conjunctions etc.)
+  - smmry.com - Maybe uses Stanford nlp module to process words, then tf-idf algo to find key phrases - term frequency - inverse document frequency analyzes word count, the more frequent the word, the more importanat (but normalize with the inverse you get from a body of documents, to control for conjunctions etc.) probably easy/fast to implement
 - automate commits and random activity here to inflate rankings - or would it be spam? probably no one cares either way
 
 #### what im doing
