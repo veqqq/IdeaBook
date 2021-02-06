@@ -5,6 +5,11 @@
 - rem - Relative to the font-size of the <html> element, rem makes it really easy to scale all headings and paragraphs on the page. Leaving the <html> with it's default fontsize and setting everything else with rem is a great approach accessibility-wise.
 - px - Pixels give you the most precision but don't offer any scaling when used in responsive designs. They are reliable, easy to understand, and present a good visual connection between value and actual result (15px is close, maybe just a pixel or two more).
 
+###### autoprefixers insert browser compatibility settings for you
+https://autoprefixer.github.io/
+https://github.com/postcss/autoprefixer
+https://github.com/sindresorhus/sublime-autoprefixer
+
 
 --
 
