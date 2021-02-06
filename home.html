@@ -179,6 +179,52 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
 which is called into the main html file like css:
 <link rel="import" href="navbar-component.html">
 
+  - even in 2018, most brwosers don't fully support the 4 features above
+- as a result... JS frameworks! The horror!
+-jQuerry in 2006, then Backbone.js in 2010, followed by AngularJs, Ember.js...
+use JS features to force similar things. But they weren't truly isolated and 
+reusable component makers
+  - 2013 React made true components by
+    - defining ALL html in JS, using JSX markup
+    - no way to write html outside of js
+    - imported js files into each other in the buildstep, instead of html imports...
+    - no shadow dom
+import React, { Component } from 'react';class Navbar extends Component {
+  render() {
+    return (
+      <nav className="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item active">
+            <a className="nav-link" href="#">Home</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">Info</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">About</a>
+          </li>
+        </ul>
+        <form className="form-inline my-2 my-lg-0">
+          <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
+          <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </nav>
+    );
+  }
+}export default Navbar;
+
+  = = =   the point of react = = =
+ separation of html css js (technologies) for maintainability is wrong, instead
+separate units of functionality (components!)
+
+  - React also delineated data management, declaratively.
+  dont write code to update interface, but use a jsx, fed to react
+then react figures out how to update and render it with a Virtual DOM
+(ember, angular, vue all copied this virtual dom)
+
+
+
+
 
 
 
