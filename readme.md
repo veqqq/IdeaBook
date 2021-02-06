@@ -4,6 +4,7 @@
 #### projects in the back of my mind
 
 - broken translation game
+  - server side rendered, hotwire or? which css to use...? probably go
   - like telephone, but users translate a text into the next language really muddling it up
   - user profiles, points for translation quality/how much they've done (ranking?) pms etc. hypothetically, but why bloat...
   - cool sorting algo, en->sp->en banned, but en->sp->chinese->sp(->en or vice versa) could be ok, as long as broken up
