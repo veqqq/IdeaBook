@@ -1,7 +1,57 @@
-/* this only selects semantic tags to center things and adjust fonts
+/* this only selects semantic tags to center things and adjust fonts - the values are hard to choose,
 it uses relative units (em - of original element or rem)
 the original element is the html setting in the browser (e.g 16px) 
 - em are relative to themselves (which has issues if you nest, e.g. 80% in a table which is 80% itself), */
+
+--
+
+/* ### CSS methodlogies
+
+#### OOCSS (Object Oriented CSS) 2009 has two main principles:
+- Separate structure and skin. CSS defining the structure/layout shouldn’t be mixed with the CSS defining
+the skin (colors, fonts, etc.).So you can "reskin" the app.
+- separate container and content. Elements as re-usable objects, an object should look the same regardless of
+where it is on the page.
+
+#### SMACSS (Scalable and Modular Architecture for CSS) 2011 - 
+uses 5 categories base rules, layout rules, modules, state rules, theme rules. 
+There are also naming conventions
+
+
+#### BEM (Block, Element, Modifier)  2010 - divides user interface into independent 
+blocks (reusable components like a search form). 
+Elements are subparts which can't be reused (e.g. a button). 
+Modifiers define the appearence, state or behavior of a block or element
+- exotic but consistent naming system
+
+Atomic CSS 2014- 
+ignores objects on the page, uses reusable utility classes which look insane.
+https://adamwathan.me/css-utility-classes-and-separation-of-concerns/
+the html relies on the css now!
+
+CSS in JS -  2014 - 
+defines css styles in the components themselves. 
+Used for React. (Reacts defines html in JS instead of an html file!)
+It defies css best practices ~ because the web is no longer static.
+CSS here is for setting hard bounderies between components - 
+which are all encapsulated html/css/js of their own, without affecting each other.
+Angular, Vue.js follow suit. */
+
+---
+
+/* https://alistapart.com/article/holygrail/ <- this article led to a lot of inovation in css,
+it's also good to learn from, it's from 2006 
+it uses the float based approach - but float doesn't make columns equal in height, nor fill the screen height
+
+in 2015, flexbox gained steam. https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/
+this uses   <div class="container">
+
+css grid eventually gained prominence - doesn't require div!
+
+
+https://medium.com/actualize-network/modern-css-explained-for-dinosaurs-5226febe3525 <- this article on sakura inspired this stuff
+
+*/
 
 
 html {
