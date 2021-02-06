@@ -15,6 +15,10 @@
 
 #### what im doing
 - go
+  - does just what it needs to, comfy, easy, simple
 - lisp
+  - so sexy, y industry no like
 - python
+  - too many nice libraries
 - (minimal) bash, yaml, html, css, json, markdown etc.
+  - why the !@#@ did that guy make a trading algo in bash... At least markdown isnt turning complete
