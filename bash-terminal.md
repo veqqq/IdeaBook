@@ -66,6 +66,7 @@
 - ps aux - shows all processes on your computer (ps = process status, its options dont use -)
   - use kill -15 then the first number found with ps (this is the process id) to kill it
   - pkill -15 -f spring would kill all processes named spring (pkill uses the name, not id?)
+  - `git grep 'variablename' -- "*.py"` #searches for the variable in all py files 
 
 - ls \*.txt #finds strings followed by .txt (remember * is "wildcard") ; has the options:
   - \-l long form (prints out date, permissions etc.
