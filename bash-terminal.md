@@ -1,5 +1,5 @@
 ctrl+alt+t opens terminal
 
 ctrl + u = clear line
-   + e = move to end of line
-   + a =    beginning of line
+ctrl + e = to end of line
+ctrl + a = to beginning of line
