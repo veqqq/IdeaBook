@@ -2,11 +2,19 @@
 
 - ctrl+alt+t opens terminal
 - tab completion, bub
-- !! (exclamation mark is pronounced bang) - runs the previous command
+- !! (exclamation mark is pronounced bang) - runs the previous command (sudo !!)
 - ! e.g. !curl runs the last curl command (you could even do !c for the last command in c)
 - ctrl R searches through commands (and lets you edit them)
 - -h gives a command's flags e.g. curl -h
 - | pipes, (if you e.g. want to do wc of head of example.txt, you could do head example.txt > dummyfile.txt, then wc dummyfile.txt. Or head sonnets.txt | wc piping the output as the standard input of the next command!
+- ~ home directory shorthand (i.e. /Users/yourname/
+- sudo is substitute user + do
+- .. (read dot dot) changes directory one level up
+- cd by default goes to ~
+- . current directory (cp ~/text_files/sonnets.txt . # copies it to current directory!
+- - previous directory! (cd -)
+- ; seperates commands
+- && <- runs the next command if the last succeeded
 
 ###### ctrl plus
 - u = clear line
@@ -44,6 +52,7 @@
 
 ###### misc.
 
+- pwd
 - history prints command history
 - which + (command) checks if the command is available, it will list where the command is located
 
@@ -51,6 +60,8 @@
   - grep rose sonnets.txt #prints every line with "rose"
   - grep rose sonnets.txt | wc # tells us how many lines have rose (and how many words...)
   - -i ignore case
+  - -r (recursive) looks in a directory's files and subdirectories' files
+  - grep -r cat text_Files (will output files which contain "cat" in directory text_files
 
 - ps aux - shows all processes on your computer (ps = process status, its options dont use -)
   - use kill -15 then the first number found with ps (this is the process id) to kill it
@@ -61,4 +72,11 @@
   - \rtl prints in order of newest modifcations first (reversed time of modification)(-r -t -l)
   - \-a all (shows hidden things which start with a . )
   - if you e.g. do ls b* it will... Well, if it lists a directory, it also opens it... So use \-d to limit it to the current directory
+  - ls text_files/ would list the contents of that directory!
+
+
+- find
+  - find . -name '*.txt' # find in current directory (and subdirectories) stuff with .txt in the name
   
+- xdg-open will open something, e.g. .
+
