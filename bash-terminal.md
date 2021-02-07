@@ -62,7 +62,7 @@
   - -i ignore case
   - -r (recursive) looks in a directory's files and subdirectories' files
   - grep -r cat text_Files (will output files which contain "cat" in directory text_files
-
+  - -v matches everything except what follows!
 - ps aux - shows all processes on your computer (ps = process status, its options dont use -)
   - use kill -15 then the first number found with ps (this is the process id) to kill it
   - pkill -15 -f spring would kill all processes named spring (pkill uses the name, not id?)
