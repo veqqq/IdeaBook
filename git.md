@@ -1,0 +1,50 @@
+
+###### parts
+- .git directory holds configs, logs, branches, head etc.
+- working tree - working directory of the repo
+- index - staging area, separates working free from git repo
+- branch - a pointer to the last commit you made
+- commit - snapshot of a set of changes to the working tree (you added 5 files, removed 2)
+- tag - marks a specific history point (used to mark release points v1.0 etc.)
+- HEAD - pointer to the current branch. A repo only has 1 HEAD. head is a pointer to any commit
+
+#### commands - all start with git
+- checkout - opens a repo, in master branch
+  - branchname - opens specific branch
+  - -b newbranch - opens new branch and goes there
+- clone https...git - copies repo to a new directory
+  - --depth 1 - only pulls the latest version
+- commit - stores the index as a new commit, containing changes and a message
+  - -m "added multiply() function to helloworld.py"
+  - -S sign's message (with signinkey)
+  - -a automatically stages modified/deleted files, but not new ones, then commits
+  - --amend - deletes and replaces last commit (e.g. to correct a typo or something?)
+- add - adds files to the index.
+  - add ./*.py
+  - add -A # adds everything from working directory to staging area
+- diff - shows dif between working dir and index
+  - --cached - shows differences between index and latest commit
+  - HEAD - dif between working dir and most recent commit
+- merge branchname - merges specified branch into current
+- branch 
+  - -a lists existing branches
+  - Newbranch - makes new branch
+  - -d deadbranch #deletes branch
+  - -m oldbranch renamedbranch #renames branch
+- tag 
+- init - makes an empty repo
+- config 
+  - --global user.email "myemail.gmail.com"
+  - --global user.name "my name"
+  - --global user.signingkey <some... number thing. what is it?>
+- echo "dontsharethisfile.txt" >> .gitignore #prevents git from commiting this file
+- status - displays branch, changes and differences between the index and HEAD
+- log - display commits to repo
+  - --oneline - only commit messages
+- mv - like bash
+- rm - removes - bash... (from current working tree)
+- pull - pulls from a repo, merges with other branch
+  - `git pull origin master` - updates local repo merging in new changes
+- push - merge changes from a branch to a
+- stash - saves things when not ready enough for a commit(?)
+- revert - makes a new commit, reversing a previous commit
