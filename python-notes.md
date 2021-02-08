@@ -29,8 +29,51 @@
 
 ### Control Flow, Iterables
 
+##### loops
+- if variable > 10:
+  - elif variable2 > 15:
+  - else
+  - `for animal in ["dog", "cat", "mouse"]` #for iterates over lists
+  - print("{} is a mammal".format(animal))
+- for i, value in enumerate(animals):
+    print(i, value) => 0 dog, 1 cat, 2 mouse
+- while x < 4: #iterates until condition ends
+  print(x)
+  x+=1
+- range (start, end, step)  # generates numbers e.g. range(4,8,2) =4 6 8
+- exceptions
+  - try: - 
+  - pass - just ends the operation
+  - else: - if the first thing didn't work
+  - finally: - do in all cases
+- with - closes stuff when done(?)
+  - used for writing files like `with open("thisfile.txt") as file1:`
+- iterable - object treated as a sequence (e.g. the object range() returns
+  - you can't do e.g. iterable[1] because it has no index, rather it generates itself
+  - next(iterator) - returns the next part
+  - its what for loops do...  
+  - make it into a list: list1 = list(iteratorsname)
+ 
+#### functions
 
+- def add(x, y):
+  print("x is {} and y is {}".format(x, y))
+  return x + y 
+add(y=6, x=5) # to use the function
+- * variable number of arguments
+- ** gives variable number of keyword arguments
+  - using this with tuples list1(\*args) or dict1(\*\*keywords) is equivilent to list1(1, 2, 3)
+- def set_x(num):
+  x = num #local var, not same as global!
+  global x
+  x = num # now it sets the global!
+    
 ### data structures - lists, tuples, dicts, strings, sets, frozensets
+- Due to CPU cache, a flat array or hashmap is almost always the best, regardless of theoretical ramifications
+  - CPU has a memory cache, when accessing memory, the CPU checks its own cache first. If it's not there, it goes to RAM (100x slower). That's called cache miss. Reducing cache miss leads to high performance code. Flat arrays are easy to fit in the cache as its contigious blocks of memory.  It can also check a range of memory, making it easier to check!
+  - https://www.bigocheatsheet.com/
+  - https://www.interviewcake.com/article/java/big-o-notation-time-and-space-complexity?
+-Python doesn't come with alot of the advanced data structures but creating them is a breeze with lists, dictionaries and objects as long as you understand the Abstract Data Type. 
 
 ##### list [ ]
 - list1 = [4, 5, 6]
@@ -53,7 +96,7 @@
 - tup1 = (1, 2, 3) #n.b. tup2 = (1,) because int1=(1). Use type((1)) and type((1,))
 - a, b, c = (1, 2, 3) unpacks a tupple (or list) into variables. a, b = b, a to switch them?
 
-####### dictionaries { : }- key: value pairs
+####### dictionaries { : }- key: value pairs - python's version of a map
 - dict1 = {"one": 1, "two": 2}
 - n.b. keys must be immutable, because they're constant hash values for quick lookup
   - {[1,2,3]: "123"} raises TypeError: unhashable type: 'list'
