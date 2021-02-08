@@ -69,7 +69,19 @@ add(y=6, x=5) # to use the function
   global x
   x = num # now it sets the global!
   ```
-  
+###### higher functions
+- (lamba x: x > 2)(3) # => True
+- (lambda x, y: x ** 2 + y ** 2)(2, 1)  # => 5
+- list(map(add_10, [1, 2, 3]))          # => [11, 12, 13]
+- list(map(max, [1, 2, 3], [4, 2, 1]))  # => [4, 2, 3]
+- list(filter(lambda x: x > 5, [3, 4, 5, 6, 7]))  # => [6, 7]
+- [add_10(i) for i in [1, 2, 3]]         # => [11, 12, 13]
+- [x for x in [3, 4, 5, 6, 7] if x > 5]  # => [6, 7]
+- {x for x in 'abcddeef' if x not in 'abc'}  # => {'d', 'e', 'f'}
+- {x: x**2 for x in range(5)}  # => {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+
+#### Modules
+
     
 ### data structures - lists, tuples, dicts, strings, sets, frozensets
 - Due to CPU cache, a flat array or hashmap is almost always the best, regardless of theoretical ramifications
