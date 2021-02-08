@@ -63,10 +63,13 @@ add(y=6, x=5) # to use the function
 - * variable number of arguments
 - ** gives variable number of keyword arguments
   - using this with tuples list1(\*args) or dict1(\*\*keywords) is equivilent to list1(1, 2, 3)
-- def set_x(num):
+- ```python
+    def set_x(num):
   x = num #local var, not same as global!
   global x
   x = num # now it sets the global!
+  ```
+  
     
 ### data structures - lists, tuples, dicts, strings, sets, frozensets
 - Due to CPU cache, a flat array or hashmap is almost always the best, regardless of theoretical ramifications
