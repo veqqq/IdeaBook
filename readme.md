@@ -34,3 +34,6 @@
   - too many nice libraries
 - (minimal) bash, yaml, html, css, json, markdown etc.
   - why the !@#@ did that guy make a trading algo in bash... At least markdown isnt turning complete
+  
+  #### random question
+  Did crash course python plagarize the official tutorial - or did the tutorial take from it? They use the same examples and functions
