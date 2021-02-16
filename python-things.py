@@ -154,9 +154,11 @@ squares = list(map(lambda x: x**2, range(10)))
 
 squares = [x**2 for x in range(10)]
 
-A list comprehension consists of brackets containing an expression followed by a for clause, then zero or more for or
-if clauses. The result will be a new list resulting from evaluating the expression in the context of the for and if clauses
-which follow it. For example, this listcomp combines the elements of two lists if they are not equal:
+A list comprehension consists of brackets containing an expression followed 
+by a for clause, then zero or more for or if clauses. The result will be a
+new list resulting from evaluating the expression in the context of the
+for and if clauses which follow it. For example, this listcomp combines 
+the elements of two lists if they are not equal:
 >>> [(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
 [(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
     is the same as:
@@ -237,24 +239,415 @@ and & or will stop if true, a and b and c will stop at b, if a and b is already 
 
 module = scripts in another file you want to call
 you import them into "main" (the script you are calling them from)
+    it's the same def fib(n) thing, written in e.g. fibo.py
+    then import fibo in another file, then use fibo.fib(100)
 
-pg. 51 of python tutorial in downloaded docs
+- modules have their own private symbol table
+ when a module is imported, Python sets globals()['__name__'] in this module to the module's name
+    this lets you use "global variables" without fucking up
+the rest of the future program
+you can touch them at modname.itemname
+    
+    -run as script: python fibo.py <arguments>
+add:
+if __name__ == "__main__":
+    import sys
+    fib(int(sys.argv[1]))
+    #if run as a script, it'll be run as main.
+    #if not a script, it wont run. Why?
+
+importlib.reload(modulename) lets you reload the module again,
+e.g. after it has been modified but without restarting the interpreter
+
+import searches for built in module, then a .py in directories
+given by variable sys.path (dir containing input script, PYTHONPATH...)
+
+*precompiled modules (.pyc) load, but dont run faster
+
+dir() lists the names a module defines - if no arg, then whats currently defined
+"name" = variables, modules, functions etc. but not builtins (which are mostly errors, also list, hex, object, open...
+access those with dir(builtins)
+
+    Package
+a package is a series of modules, instead of having to know each module namedyo
+you use the same package.function to use them!
+__init__.py #marks the directory as a package (can be empty)
+however you can still e.g. sound.effects.echo and use a specific module
+
+---
+    input and output
+f'blabla{year} {event}' will insert the variables year and EnvironmentError 
+    called "formatted string literal", starts with f or F before quotes or triple quotation marks
+str.format() also uses {} but you must give it the variables too:
+    '{:-9} YES votes {:2.2%}'.format(yes_votes, percentage)
+    #:-9 pads the input so it uses at least 9 characters
+    #% tells python to use a decimal as a percentage, so .5 becomes 50%
+    # the - minus sign means to only use it for negatives (which is the default?)
+    # https://stackoverflow.com/questions/63806417/what-is-the-function-of-9-in-python
+#underscores in an interget are ignored by the interpreter so
+#123_456 is 123456 but easier to read!
+    an integer after : makes the field a minimum number of characters wide
+    !a applies ascii(), !s applies str() !r repr())
+    the {} can be empty. Can use an int to refer to which of the variables
+at the end they apply to:
+    print('{1} and {0}'.format('spam', 'eggs')) #prints eggs and ham
+    or you could do print("this {food}".format(food="corn"))
+
+%d will truncate to integer, %s will maintain formatting, 
+%f will print as float and %g is used for generic number
+name ='giacomo'
+number = 4.3
+print('%s %s %d %f %g' % (name, number, number, number, number))
+outputs giacomo 4.3 4 4.300000 4.3
+
+print ('%s is %d years old' % ('Joe', 42))
+
+    %s tells the formatter to call the str() function on the 
+argument and since we are coercing to a string by definition,
+ %s is essentially just performing str(arg).
+    %d on the other hand, is calling int() on the
+ argument before calling str(), like str(int(arg)), 
+ This will cause int coercion as well as str coercion. 
+>>> '%d' % 0x15 #hex to decimal
+'21'
+
+https://docs.python.org/3.7/library/string.html
+:d makes a decimal, :x hex, :, seperates thousands with comma
+:.2% gives percentage with 2 numbers past the decimal
+e.g. print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x))
+
+file1.write("...{}...".format(blabla)) #for writing to a file
+
+% modulo formats strings:
+"string" % values - called string interpolation
+print('The value of pi is approximately %5.3f.' % math.pi)
+    prints 3.142
+    cf "old string formating"
+
+open("filename", "w")
+    r only reads, w only writes (erases old file), a appends to end
+r+ read and writes. r is assumed if unspecified.
+b opens in binary mode, reading in byte objects - use for non-text filters
+    in text mode, \n and \r\n (windows) are converted to just \name
+and when writing back, they go back to platform specific versions.
+This would corrupt a .exe or .jpg...
+use filename.close() so the interpreter actually writes the stuff to the file
+
+filename.seek(offset, whence) adds the offset to the reference point,
+to get a new "cursor" position when reading a file (or readlines())
+    in text files, only seeks relative to the beginning are allowed
+
+
+JSON - json in std lib "serializes" (converts python data
+ hyrachies like dictionaries into string representations),
+ turning them back is "deserializing"
+ json.dumps([1, "simple", list"])
+json.dump(x, f) will read from f assuming f was = open("filename.txt")
+x = json.load(f) 
+    ***check docs, this is UnicodeTranslateError
+
+
+
+
+------ errors and exceptions
+e.g. in a while loop 
+    try: #blabla, ends if an error occurs
+    use except ValueError: # or (ValueError, RuntimeError):
+        print("oops, that's not a valid number")
+    #it will print if a ValueError comes up
+    #if another exception, its "unhandled" and execution stops
+    #last except clause may omit exception names as a wildcard
+you can print:
+    print("Unexpected error:", sys.exc_info()[0]) which would print
+the exception to file or whatever...
+After all excepts, you can use else:
+    it executes if the try: doesnt raise exceptions!
+
+raise NameError("hi") #forces an exception to occur
+
+user defined exceptions !
+    create a new exception classes
+
+Class Error(Exception):
+    """Base class"""
+    passed
+    
+class InputError(Error):
+    """exception raised for errors in the input.
+
+    Attributes:
+        expression -- input expression the error occured in
+        message - explain error
+    """
+
+    def __init__(self, expression, message):
+        self.expression = expression
+        self.message= = message
+
+clean up actions
+    try statements' finally: clause executes no matter the circumstances
+(executes right before a break, continue or return)
+
+--- Classes! --- 
+
+bundle data and functionality together. A class makes a new type of object,
+so new instances of that type can be made. It has attributes to maintainits state.
+And has methods to modify its state.
+    class inheritence has base classes, derived classes can override
+the base class(es) and can use its base class' methods
+
+Objects are individuals, but multiple names can bind to one object. (aliasing)
+    when dealing with mutable objects (lists, dicts...) names act like
+pointers. Passing it only needs to pass the pointer!
+
+scope rules, namespaces
+
+namespace - maps names to objects. Mostly implemented as dictionaries.
+    builtins, built in exceptions, global names in module, local names in a function invocation
+    - names in different namespaces have no relation. each can have its own "max"
+
+n.b. attribute = a name following a dot. in z.real, real is attribute
+
+scope - textual region of program where namespace is accessible
+accessible = referncing a name tries to find it in the namespace
+    3-4 scopes:
+    innermost (searched first) local names 
+    scopes of enclosing functions - non local, but non global
+    global names of current module
+    outermost, built in names
+if a name's declared global, it goes to the middle scope. nonlocal
+can rebind names
+
+module objects have a read only attribute __dict__ returning the
+dict used to implement its namespace
+
+assignments dont copy data, just bind names to objects.
+del also only removes the binding (as reference by the local scope)
+all operations introducing new names use the local, import binds to local
+
+example:
+
+def scope_test():
+    def do_local():
+        spam = "local spam"
+    
+    def do_nonlocal():
+        nonlocal spam
+        spam = "nonlocal spam"
+
+    def do_global():
+        global spam
+        spam = "global spam"
+
+    spam = "test spam"
+    do_local()
+    print("after local assignment:", spam)
+    do_nonlocal()
+    print("After nonlocal assignment:", spam)
+    do_global()
+    print("After global assignment:", spam)
+
+scope_test()
+print("in global scope:", spam)
+
+result:
+after local assignment: test spam
+After nonlocal assignment: nonlocal spam
+After global assignment: nonlocal spam #it is in the function, so doesnt use globals...
+In global scope: global spam
+
+    Classes
+entering class definition, creates new namespace, used as localswhenn
+when class ef ends, a class object's created (wrapping the namespace contents)
+the original local scope (from before class definition) returns
+with the class object bound to the classname
+
+class objects have 2 operations: attribute reference, instantiation
+    attribute references are obj.name (classname.variableorfunctionname)
+    instantiation uses function notation x = classname()
+
+def __init__(self, data): #makes the class do something when instantiated
+    self.r = data
+
+x = classname(5)
+print(x.r)
+    gives 5
+
+functions in a class are called method
+variables in a class are called attributes/instance variables
+
+instance objects - only accept attribute references.
+    2 kinds of attribute names - data attributes and Methods
+    data attributes = instance variables
+
+the key difference between a function and a class method.
+ A function is floating free, unencumbered. A class (instance) 
+ method has to be aware of it's parent (and parent properties) 
+ so you need to pass the method a reference to the parent class 
+ (as self). It's just one less implicit rule that you have to 
+ internalize before understanding OOP. Other languages choose 
+ syntactic sugar over semantic simplicity, python isn't other languages. 
+
+self in a class refers to this instance. So you need the functions etc. to 
+refer to their instance.
+    The instance a method belongs to is passed automatically, but not received.
+     So the first parameter of a method is the instance the method is called
+      on. This makes methods and functions the same - but you use them differently.
+Self comes from smalltalk and modula-3 conventions, but "this" could be clearer
+
+### if ClassA has methodA, defined as:
+def methodA(self, arg1, arg2):
+    if ObjectA is an instance of this class and you call methodA on ObjectA:
+    ObjectA.methodA(arg1, arg2) # python will automatically convert it to:
+    ClassA.methodA(ObjectA, arg1, arg2) #<- see? self is the... instance!
+
+a method can call another method using self:
+class Bag:
+    def __init__(self):
+        self.data = []
+    
+    def add(self, x):
+        self.data.append(x)
+    
+    def addtwice(self, x):
+        self.add(x)
+        self.add(x)
+
+
+method objects
+
+
+p.g. 82 - method objects, function objects etc... are these differences important?
+    return later ???
 
 
 
 
 
 
+converting a list of ints into a string is difficult!
+    output = "".join([str(num) for num in output])
+            use map()
+    final_str = delimiter.join(map(str, mix_list))
+    therefore: output ="".join(map(str, output))
+    
+
+---    inheritence ---
+class DerivedClassName(BaseClassName): #but other expressions are allowed 
+    e.g. modname.BaseClassName
+
+class DerivedClassName(BaseClass1, BaseClass2, BaseClass3): #multiple inheritance!
+    #if e.g. method names are shared in all, the first one mentioned has precedence
+
+Varuables starting with an underscore aren't part of APIs, they're subject to
+change without notice
+
+
+
+Vocab:
+
+    namespace - maps names to object, it's a dictionary
+    nested scope / scope ? 
+    
+    object
+    class variable
+    class object - 2 ops, attribute ref, instantiation
+    class methods
+    
+    module object - have a __dict__ attribute returning the dict implementing its namespace
+
+    method - function defined in a class body
 
 
 
 
 
+------------
+------------
+----------
 
+    tour of standard library
+os.get.cwd() - gets current working directory
+os.chdir("/server/accesslogs") - changes current directory
+os.system("mkdir today") - runs mkdir in the system shell
 
+shutil.copyfile("data.txt", /file/data.txt")
+shutil.move("/build/executables", "installdir") # I guess copyfile cant go backwards?
 
+glob.glob("*.py") - lets you do wildcard searchers
 
+re.findall(r"\bf[a-z]*", "which foot or hand fell fastest") #gives list of words in f-
+re.sub(r" (\b[a-z]+) \1", r"\1", "cat in the the hat") #gives 1 string without 2nd the
+"tea for too".replace("too", "two")
+    math gives access to C functions for floating point path
+math.cos(math.pi/4) #gives cos...
+math.log(1024, 2) #gives 10.0
 
+random.choice(["apple", "pear", "bannana"])
+random.sample(range(100), 10) #gives 10 random numbers in range(100)
+random.random() #random float e.g. .173423432
+random.randrange(6) #random int in range (6)
 
+statistics.mean(data) #gives the mean of some list
+.median()
+.variance()
 
+urllib.request.urlopen("http:.... .com") as response:
+    for line in response:
+        line = line.decode("utf-8") #decodes binary to text
+        if "EST" in line or "EDT" in line: #look for Eastern Time
+            print(line)
 
+server = smtplib.SMTP("localhost")
+server.sendmail("blabla@gmail.com", "caeser@gmail.com", "Hey man, what's up?") #sends from to
+    #needs mailserver running on localhost
+
+date.today()
+now.strftime("%m-%d-%y. %d %b %Y is a %A on the %d day of %B.")
+    date can do calender math!
+birthday = date(1964, 7, 31)
+age = date.today() - birthday
+age.days #gives the number of days...
+
+zlib, gzip, bz2,lzma, zipfile and tarfile
+s = b"witch which has..."
+t = zlib.compress(s)
+zlib.decompress(t)
+
+Timer('a,b = b,a', 'a=1; b=2').timeit() #times a function, for speed testing!
+    profile and pstats have similar tools
+
+doctest #scans a module, validates tests in its docstrings
+
+def average(values):
+    """Computes the arithmetic mean of a list of ints
+
+    >>> print(average([20, 30, 70]))
+    40.0
+    """
+    return sum(values) / len(values)
+
+doctest.testmod() #validates the embedded tests
+unittest lets you maintain tests ina  separate file
+
+xmlrpc.client and xmlrpc.server
+
+email builds and decodes messages w/ attachments, header protocols etc.
+    smtplib and poplib actually send and receive the messages
+
+json
+sqlite3 wraps SQLite database library
+
+    multithreading: #can run tasks while others wait for user input...
+threading 
+
+logging.debug("Deubbing info") #sends log messages to a file or sys.stderr
+.info #defaults as standard error
+.warning #
+.error
+.critical
+
+array.array() #makes an array which can only hold 1 data type, but
+    at 2 bytes per entry, a python list uses 16 bytes per entry!
+collections.deque() #makes a list with faster appends and pops on both sides
+    but slower to look up the middle
