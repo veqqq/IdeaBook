@@ -71,3 +71,27 @@ def strip(word):
 
 if __name__ == "__main__":
     summarize("input_file2.txt", 1)
+    
+    """ other version
+    
+    import re
+stop_words = [...list of stop words...] # from op's description above
+text = 'This case describes the establishment of...' # example string of the input text
+
+sentences = re.split(r'(?<!\.\w)\. ', text.replace('\n', ''))
+words = re.split(r'[\., ()]', text.replace('\n', ''))
+word_count = {i: text.count(i) for i in words if i.lower() not in stop_words and len(i)>2}
+
+def score(i):
+    value = 0
+    for j in i.split():
+        if j.lower() in word_count and word_count[j]>1:
+            value += word_count[j]
+    return value
+
+best = []
+for i in sentences:
+    best.append((score(i), i))
+print((sorted(best)[-1][1])+'.')
+
+"""
