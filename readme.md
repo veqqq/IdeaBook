@@ -13,6 +13,8 @@
   - use it to crowd source translations of other things?
   - esperanto community could be a good start and https://forum.language-learners.org and reddit subs
 
+- Map dis.dis() results to go to make python binaries
+
 - web scrapping
   - reddit bots analyzing stocks, analyzing news articles (especially arctic and central asia) by author, comment quality/size, etc. to get a statistical image of the field
   - colly lib - go
