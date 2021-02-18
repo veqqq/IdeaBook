@@ -1,3 +1,15 @@
+
+###### this clones a repo in another folder and automatically changes to it
+```bash
+gclone() {
+
+cd $HOME/git-linux && git clone "$1" && cd "$(basename $1 .git)"
+
+}
+```
+
+---
+
 https://developer.apple.com/library/archive/documentation/OpenSource/Conceptual/ShellScripting/shell_scripts/shell_scripts.html
 http://mywiki.wooledge.org/BashSheet
 linuxcommand.org/lc3_lts0070.php
