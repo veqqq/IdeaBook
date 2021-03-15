@@ -43,3 +43,18 @@
   
   # interesting things for later
   - https://www.carlomaiorano.me/golang/2019/10/03/generating-code-golang.html
+  - https://dave.cheney.net/practical-go/presentations/qcon-china.html
+  - https://dave.cheney.net/2016/08/20/solid-go-design
+  - https://github.com/faif/python-patterns
+  - https://linuxjourney.com/
+   - https://www.hoppersroppers.org/course.html
+  - https://github.com/jlevy/the-art-of-command-line
+  - https://github.com/petercunha/the-art-of-command-line <- dif from above?
+  - https://posts.specterops.io/malware-development-pt-1-dynamic-module-loading-in-go-1121f07f3a5a
+  - https://en.wikipedia.org/wiki/File_format#Magic_number
+  - https://en.wikipedia.org/wiki/Executable_and_Linkable_Format
+  - https://bazaar.abuse.ch/
+  - https://redcodelabs.io/#tools
+  - https://www.varonis.com/blog/malware-coding-lessons-people-part-learning-write-custom-fud-fully-undetected-malware/
+  - https://www.varonis.com/blog/malware-coding-lessons-for-it-people-part-ii-more-fun-with-fud-ransomware/
+  - 
