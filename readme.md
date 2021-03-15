@@ -39,3 +39,7 @@
   
   #### random question
   Did crash course python plagarize the official tutorial - or did the tutorial take from it? They use the same examples and functions
+  
+  
+  # interesting things for later
+  - https://www.carlomaiorano.me/golang/2019/10/03/generating-code-golang.html
