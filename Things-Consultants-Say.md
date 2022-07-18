@@ -136,4 +136,4 @@ weeds: the intricate details of an analysis. Some people love the weeds, others 
 
 white space: an opportunity for company to generate revenue where it is not currently. For example, generating revenue from an existing product in a new market.
 
-wordsmith: to make trivial or generally unnecessary edits to text that may only subtly change the meaning, if at all; incorrectly implies that one is a craftsman on the order of a blacksmith or goldsmith; sadly, wordsmithing rarely involves the deletion of jargon.
+wordsmith: to make trivial or generally unnecessary edits to text that may only subtly change the meaning, if at all; incorrectly implies that one is a craftsman on the order of a blacksmith or goldsmith; sadly, wordsmithing rarely involves the deletion of jargon..
