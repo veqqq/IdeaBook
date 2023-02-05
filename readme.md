@@ -25,9 +25,13 @@
 - go
   - does just what it needs to, comfy, easy, simple
 - lisp (scheme and common)
-  - so sexy, y industry no like
-  - to what extent can compilers really be made efficient enough to 
-- learn bash to do weird code golf?
+  - divine
+  - but hardware's built to optimize c's progeny
+- Haskell
+- J
+- unikernels
+- plan9 & inferno
+- solaris
   
   
   # interesting things for later
