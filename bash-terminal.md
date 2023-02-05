@@ -1,4 +1,4 @@
-##### terminal hotkeys
+##### redline - terminal hotkeys
 
 - ctrl+alt+t opens terminal
 - tab completion, bub
